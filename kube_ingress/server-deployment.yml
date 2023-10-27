@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: server-deployment
+  template:
+    metadata:
+      labels:
+        app: server-deployment
+    spec:
+      containers:
+        - name: server-deployment
+          ports: 
+          - containerPort: 80
+          env:
+            - name: MONGO_URL
+              value: "mongodb://mongo:27017/myDb"
+          image: klo123645/reactweather
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: server-service
+spec:
+  type: ClusterIP
+  selector:
+    app: server-deployment
+  ports:
+  - port: 8080
+    targetPort: 8080

@@ -16,7 +16,7 @@ spec:
         - name: reactweather
           ports: 
           - containerPort: 3000
-          image: klo123645/weatherclient:v6
+          image: klo123645/weatherclient:v9
           resources:
             limits:
               memory: "128Mi"
@@ -31,5 +31,5 @@ spec:
   selector:
     app: reactweather
   ports:
-    - port: 3000
+    - port: 80
       targetPort: 3000

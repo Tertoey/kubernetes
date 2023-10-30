@@ -6,7 +6,7 @@ function User() {
 
   async function fetchData(){
     try{
-        const res = await fetch(`http://127.0.0.1:8080/sensors`)
+        const res = await fetch(`http://todo.com/sensors`)
         const result = await res.json()
         setData(result.result[0])
         console.log(result.result[0].Temperature)

@@ -10,6 +10,7 @@ const client = new line.Client(config)
 exports.lineWebhook = async(req,res)=>{
     try{
         const events = req.body.events
+        console.log(events)
         const reply_token = events[0].replyToken
         const message = req.body.events[0].message.text
         const body = await reply(reply_token, message)

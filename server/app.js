@@ -5,10 +5,10 @@ const lineChat = require('./route/lineChat')
 const bodyparser = require('body-parser')
 const mongoose = require('mongoose')
 const cors = require('cors')
-// const mongoConnect = process.env.MONGO_URL || 'mongodb://localhost:27017/myDb'
-const mongoConnect = 'mongodb+srv://klo123645:Klo123645@cluster0.9djy9xz.mongodb.net/userDB?retryWrites=true&w=majority'
-
 require('dotenv').config()
+// const mongoConnect = process.env.MONGO_URL || 'mongodb://localhost:27017/myDb'
+const mongoConnect = 'mongodb+srv://klo123645:'+process.env.MONGO_ATLAS_PW+'@cluster0.9djy9xz.mongodb.net/userDB?retryWrites=true&w=majority'
+
 app.use(lineChat)
 app.use(cors())
 app.use(bodyparser.urlencoded({extended: false}))

@@ -40,15 +40,36 @@ const rawData = new mongoose.Schema({
     Humidity:{type:String},
   });
 
-const user = new mongoose.Schema({
-    fname :{type:String},
-    lname : {type:String},
-    email : {type:String,require:true,unique:true}
-})
+// const user = new mongoose.Schema({
+//     fname :{type:String},
+//     lname : {type:String},
+//     email : {type:String,require:true,unique:true}
+// })
+
+const user = mongoose.Schema({
+  _id: mongoose.Schema.Types.ObjectId,
+  email:{type:String, 
+      require:true,
+      unique: true,
+      index:true
+      // ,match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/ // use validator instead
+  },
+  password:{type:String, require:true},
+  fname:{type:String, require:true},
+  lname:{type:String, require:true},
+  // createdAt:{type:String, default:createdAt},
+  // updatedAt:{type:String,default:createdAt},
+  // lastLoginAt:{type:String},
+  isVerified:{type:Boolean,default:true},
+},
+  {
+      timestamps: { createdAt: 'createdAt', updatedAt: 'updatedAt' },
+  },
+)
 
 const milesight = mongoose.model('am319',am319)
 const sensorData = mongoose.model('rawData', rawData);
-const userData = mongoose.model('userData',user)
+const userData = mongoose.model('user',user)
 
 module.exports = {
     sensorData, 

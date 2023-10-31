@@ -15,6 +15,7 @@ router.post('/savesensors',data.saveSensorsData)
 router.post('/saveuser',data.saveUser)
 router.post('/finduser',data.findusers)
 
+router.get('/am319',data.am319)
 
 router.post('/line',lineBot.line_test)
 

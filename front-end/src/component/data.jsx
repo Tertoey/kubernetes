@@ -6,10 +6,13 @@ function User() {
 
   async function fetchData(){
     try{
-        const res = await fetch(`http://todo.com/sensors`)
+        // const res = await fetch(`http://todo.com/sensors`)
+        const res = await fetch(`http://127.0.0.1:8080/am319`)
         const result = await res.json()
-        setData(result.result[0])
-        console.log(result.result[0].Temperature)
+        setData(result.result)
+        console.log(result)
+        // setData(result.result[0])
+        // console.log(result.result[0].Temperature)
     }catch(err){
         console.log(err)
     }
@@ -27,10 +30,11 @@ function User() {
   return (
     <div>
       <h3>Temperature sensors</h3>
-      {!data.Temperature ? (<p>Loading Data....</p>):(
+      {!data.temperature ? (<p>Loading Data....</p>):(
         <>
         <p>Last update: {(data?.Timestamp).replace(/T/, ' ').replace(/\..+/, '') }</p>
-        <p>Temperature: {data?.Temperature}</p>
+        <p>Temperature: {data?.temperature}</p>
+        <p>Humidity: {data?.humidity}</p>
         </>
       )}
     </div>

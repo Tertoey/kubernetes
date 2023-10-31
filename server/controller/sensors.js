@@ -1,4 +1,4 @@
-const {sensorData,userData} = require('../model/dbSelect')
+const {sensorData,userData,milesight} = require('../model/dbSelect')
 const mongoose = require('mongoose')
 const os = require('os')
 require('dotenv').config()
@@ -71,16 +71,16 @@ exports.saveUser = (req,res)=>{
     })
 }
 
-// exports.am319 = (req,res)=>{
-//     sensorData.find().sort({'Timestamp':-1}).limit(1)
-//     .exec()
-//     .then(result=>{
-//         return res.json({result:result})
-//     })
-//     .catch(err=>{
-//         return res.json({error:err})
-//     })
-// }
+exports.am319 = (req,res)=>{
+    milesight.find().sort({'time':-1}).limit(1)
+    .exec()
+    .then(result=>{
+        return res.json({result:result[0].payload})
+    })
+    .catch(err=>{
+        return res.json({error:err})
+    })
+}
 
 exports.weather = async (req,res)=>{
     const city = req.body.city

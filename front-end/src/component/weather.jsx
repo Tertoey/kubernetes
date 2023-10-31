@@ -12,7 +12,8 @@ function Weather() {
         city : cityName
     }
     try{
-        const response = await fetch(`http://todo.com/weathersearch`,{
+        const response = await fetch(`http://127.0.0.1:8080/weathersearch`,{
+        // const response = await fetch(`http://todo.com/weathersearch`,{
             method:'POST',
             headers:{
                 "Content-Type":"application/json",

@@ -12,7 +12,7 @@ function Weather() {
         city : cityName
     }
     try{
-        const response = await fetch(`http://10.24.244.67:8080/weathersearch`,{
+        const response = await fetch(`https://kubernetes-ahqh.vercel.app/weathersearch`,{
         // const response = await fetch(`http://todo.com/weathersearch`,{
             method:'POST',
             headers:{

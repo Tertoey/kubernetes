@@ -12,12 +12,11 @@ function Weather() {
         city : cityName
     }
     try{
-        const response = await fetch(`https://1138-203-172-95-74.ngrok.io/weathersearch`,{
+        const response = await fetch(`http://10.24.244.67:8080/weathersearch`,{
         // const response = await fetch(`http://todo.com/weathersearch`,{
             method:'POST',
             headers:{
                 "Content-Type":"application/json",
-                'ngrok-skip-browser-warning':true,
             },
             body: JSON.stringify(jsondata),
         })

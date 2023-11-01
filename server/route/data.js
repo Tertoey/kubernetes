@@ -2,10 +2,11 @@ const express = require('express')
 const router = express.Router()
 const data = require('../controller/sensors')
 const lineBot = require('../controller/line')
+// const cors = require('cors')
 
 require('dotenv').config();
 
-
+// router.all('*', cors());
 router.get('/sensors',data.sensors)
 router.get('/users',data.users)
 router.get('/weather',data.weather)

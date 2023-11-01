@@ -7,7 +7,7 @@ function User() {
   async function fetchData(){
     try{
         // const res = await fetch(`http://todo.com/sensors`)
-        const res = await fetch(`https://2068-203-172-95-74.ngrok.io/am319`)
+        const res = await fetch(`https://1138-203-172-95-74.ngrok.io/am319`)
         const result = await res.json()
         setData(result.result)
         console.log(result)

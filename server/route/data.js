@@ -17,6 +17,9 @@ router.post('/saveuser',data.saveUser)
 router.post('/finduser',data.findusers)
 
 router.get('/am319',data.am319)
+router.get('/',(req,res)=>{
+    res.send("Hello World")
+})
 
 router.post('/line',lineBot.line_test)
 

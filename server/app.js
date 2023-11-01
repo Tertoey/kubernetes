@@ -9,12 +9,11 @@ require('dotenv').config()
 // const mongoConnect = process.env.MONGO_URL || 'mongodb://localhost:27017/myDb'
 const mongoConnect = 'mongodb+srv://klo123645:'+process.env.MONGO_ATLAS_PW+'@cluster0.9djy9xz.mongodb.net/userDB?retryWrites=true&w=majority'
 
-// app.use(cors())
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*"); // update to match 
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content- Type, Accept");
-  next();
-  });
+app.use(cors({
+  origin: ["https://kubernetes-ten.vercel.app"],
+  methods: ['GET', 'POST'],
+  credentials: true
+}))
 app.use(lineChat)
 app.use(bodyparser.urlencoded({extended: false}))
 app.use(bodyparser.json())
